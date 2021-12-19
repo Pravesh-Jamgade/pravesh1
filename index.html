@@ -187,11 +187,23 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TNQ4DSBMFX"></script>
 <script>
+ var currentUserName=_spPageContextInfo.userDisplayName;
+	
+gtag('event', 'usernameDimension_event', {
+  'event_label': 'username event',
+  'event_category': 'engagement',
+  'non_interaction': true
+});
+	
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-TNQ4DSBMFX');
+  gtag('config', 'G-TNQ4DSBMFX',{
+	  'custom_map': {'usernameDimension': 'username'}
+  });
+	
+  gtag('event', 'usernameDimension_event', {'username': currentUserName});
 </script>
   </body>
 </html>
